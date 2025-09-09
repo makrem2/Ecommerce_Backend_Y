@@ -28,7 +28,11 @@ db.sequelize.sync();
 
 app.get("/",(req,res)=>{
   res.json({message:'Welcome to Our Ecommerce Application'});
-})
+});
+
+
+require('./app/routes/auth.routes')(app);
+require('./app/routes/user.routes')(app);
 
 
 const PORT = process.env.PORT || 8080;
