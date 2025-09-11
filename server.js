@@ -33,6 +33,9 @@ app.get("/",(req,res)=>{
 
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
+require('./app/routes/categorie.routes')(app);
+require('./app/routes/produit.routes')(app);
+require('./app/routes/panier.routes')(app);
 
 
 const PORT = process.env.PORT || 8080;

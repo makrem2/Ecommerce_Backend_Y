@@ -17,4 +17,25 @@ module.exports = function (app) {
     usercontroller.upload,
     usercontroller.updateUser
   );
+  app.delete(
+    "/api/user/deleteUser/:id",
+    [AuthJwt.verifyToken, AuthJwt.isAdmin],
+    usercontroller.deleteUser
+  );
+  app.get(
+    "/api/user/getAllUsers",
+    [AuthJwt.verifyToken, AuthJwt.isAdmin],
+    usercontroller.getAllUsers
+  );
+  app.get(
+    "/api/user/getOneUser/:id",
+    [AuthJwt.verifyToken, AuthJwt.isAdminOrClient],
+    usercontroller.getOneUser
+  );
+
+  app.patch(
+    "/api/user/toggleUserStatus/:id",
+    [AuthJwt.verifyToken, AuthJwt.isAdmin],
+    usercontroller.toggleUserStatus
+  );
 };
